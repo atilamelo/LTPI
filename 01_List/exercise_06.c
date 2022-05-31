@@ -1,15 +1,29 @@
 #include <stdio.h> 
+#define NUMBER_NUMS 3
 
 int main(){
-    int var1, var2, var3; 
-    int *ptr1 = &var1, *ptr2 = &var2, *ptr3 = &var3;
+    int nums[NUMBER_NUMS], num_sort; 
+    int temp_sort;
 
-    if(var1 < var2 && var1 < var3){
-                
+    for(int i = 0; i < NUMBER_NUMS; i++){
+        scanf(" %d", &nums[i]);
     }
 
+    // Method of sorting: Insertion sort  
+    for(int i = 1; i < NUMBER_NUMS; i++){
+        while(i > 0 && nums[i] < nums[i-1]){
+            temp_sort = nums[i];
 
+            // Swap nums[i] and nums[i-1]
+            nums[i] = nums[i-1];
+            nums[i-1] = temp_sort;
 
+            i--;
+        }
+    }
 
+    for(int i = 0; i < NUMBER_NUMS; i++){
+        printf("\n%do:%d // Adress: %p", i+1, nums[i], &nums[i]);
+    }
 
 }
